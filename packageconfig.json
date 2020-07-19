@@ -1,9 +1,9 @@
 ﻿{
-  "artifactVersion": "1.9.4",
+  "artifactVersion": "1.0.1",
   "gitUserId": "Cloudmersive",
-  "gitRepoId": "Cloudmersive.APIClient.PHP.DocumentAndDataConvert",
+  "gitRepoId": "Cloudmersive.APIClient.PHP.VideoAndMediaServices",
   "composerVendorName": "cloudmersive",
-  "composerProjectName": "cloudmersive_document_convert_api_client",
-  "packagePath": "cloudmersive_document_convert_api_client"
+  "composerProjectName": "cloudmersive_video_api_client",
+  "packagePath": "cloudmersive_video_api_client"
   
 }  
