@@ -102,6 +102,16 @@ class VideoApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for videoConvertToStillFrames
+     *
+     * Convert Video to PNG Still Frames..
+     *
+     */
+    public function testVideoConvertToStillFrames()
+    {
+    }
+
+    /**
      * Test case for videoConvertToWebm
      *
      * Convert Video to WEBM format..
@@ -112,12 +122,62 @@ class VideoApiTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * Test case for videoCutVideo
+     *
+     * Cut a Video to a Shorter Length.
+     *
+     */
+    public function testVideoCutVideo()
+    {
+    }
+
+    /**
      * Test case for videoGetInfo
      *
      * Get detailed information about a video or audio file.
      *
      */
     public function testVideoGetInfo()
+    {
+    }
+
+    /**
+     * Test case for videoResizeVideo
+     *
+     * Resizes a Video Preserving the Original Aspect Ratio..
+     *
+     */
+    public function testVideoResizeVideo()
+    {
+    }
+
+    /**
+     * Test case for videoResizeVideoSimple
+     *
+     * Resizes a Video without Preserving Aspect Ratio..
+     *
+     */
+    public function testVideoResizeVideoSimple()
+    {
+    }
+
+    /**
+     * Test case for videoScanForNsfw
+     *
+     * Scan a Video for NSFW content..
+     *
+     */
+    public function testVideoScanForNsfw()
+    {
+    }
+
+    /**
+     * Test case for videoSplitVideo
+     *
+     * Split a Video into Two Shorter Videos.
+     *
+     */
+    public function testVideoSplitVideo()
     {
     }
 }

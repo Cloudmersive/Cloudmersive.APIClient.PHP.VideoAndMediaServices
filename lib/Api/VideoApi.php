@@ -87,23 +87,22 @@ class VideoApi
      *
      * Convert Video to Animated GIF format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param  \DateTime $start_time Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function videoConvertToGif($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $extend_processing_time = null, $start_time = null, $time_span = null)
+    public function videoConvertToGif($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $start_time = null, $time_span = null)
     {
-        list($response) = $this->videoConvertToGifWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $extend_processing_time, $start_time, $time_span);
+        list($response) = $this->videoConvertToGifWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $start_time, $time_span);
         return $response;
     }
 
@@ -112,24 +111,23 @@ class VideoApi
      *
      * Convert Video to Animated GIF format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param  \DateTime $start_time Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function videoConvertToGifWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $extend_processing_time = null, $start_time = null, $time_span = null)
+    public function videoConvertToGifWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $start_time = null, $time_span = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToGifRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $extend_processing_time, $start_time, $time_span);
+        $request = $this->videoConvertToGifRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $start_time, $time_span);
 
         try {
             $options = $this->createHttpClientOption();
@@ -195,22 +193,21 @@ class VideoApi
      *
      * Convert Video to Animated GIF format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param  \DateTime $start_time Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToGifAsync($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $extend_processing_time = null, $start_time = null, $time_span = null)
+    public function videoConvertToGifAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $start_time = null, $time_span = null)
     {
-        return $this->videoConvertToGifAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $extend_processing_time, $start_time, $time_span)
+        return $this->videoConvertToGifAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $start_time, $time_span)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -223,23 +220,22 @@ class VideoApi
      *
      * Convert Video to Animated GIF format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param  \DateTime $start_time Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToGifAsyncWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $extend_processing_time = null, $start_time = null, $time_span = null)
+    public function videoConvertToGifAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $start_time = null, $time_span = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToGifRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $extend_processing_time, $start_time, $time_span);
+        $request = $this->videoConvertToGifRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $start_time, $time_span);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -281,27 +277,20 @@ class VideoApi
     /**
      * Create request for operation 'videoConvertToGif'
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels. (optional)
-     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to 250 pixels, maximum is 500 pixels. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to 24 frames per second. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      * @param  \DateTime $start_time Optional; Specify the desired starting time of the GIF video in TimeSpan format. (optional)
-     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 minutes. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the GIF video in TimeSpan format. Limit is 30 seconds. Default is 10 seconds. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function videoConvertToGifRequest($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $extend_processing_time = null, $start_time = null, $time_span = null)
+    protected function videoConvertToGifRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $start_time = null, $time_span = null)
     {
-        // verify the required parameter 'input_file' is set
-        if ($input_file === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $input_file when calling videoConvertToGif'
-            );
-        }
 
         $resourcePath = '/video/convert/to/gif';
         $formParams = [];
@@ -329,10 +318,6 @@ class VideoApi
         // header params
         if ($frame_rate !== null) {
             $headerParams['frameRate'] = ObjectSerializer::toHeaderValue($frame_rate);
-        }
-        // header params
-        if ($extend_processing_time !== null) {
-            $headerParams['extendProcessingTime'] = ObjectSerializer::toHeaderValue($extend_processing_time);
         }
         // header params
         if ($start_time !== null) {
@@ -423,22 +408,21 @@ class VideoApi
      *
      * Convert Video to MOV format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function videoConvertToMov($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMov($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        list($response) = $this->videoConvertToMovWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        list($response) = $this->videoConvertToMovWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
         return $response;
     }
 
@@ -447,23 +431,22 @@ class VideoApi
      *
      * Convert Video to MOV format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function videoConvertToMovWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMovWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToMovRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToMovRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         try {
             $options = $this->createHttpClientOption();
@@ -529,21 +512,20 @@ class VideoApi
      *
      * Convert Video to MOV format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToMovAsync($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMovAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        return $this->videoConvertToMovAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time)
+        return $this->videoConvertToMovAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -556,22 +538,21 @@ class VideoApi
      *
      * Convert Video to MOV format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToMovAsyncWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMovAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToMovRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToMovRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -613,26 +594,19 @@ class VideoApi
     /**
      * Create request for operation 'videoConvertToMov'
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function videoConvertToMovRequest($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    protected function videoConvertToMovRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        // verify the required parameter 'input_file' is set
-        if ($input_file === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $input_file when calling videoConvertToMov'
-            );
-        }
 
         $resourcePath = '/video/convert/to/mov';
         $formParams = [];
@@ -664,10 +638,6 @@ class VideoApi
         // header params
         if ($quality !== null) {
             $headerParams['quality'] = ObjectSerializer::toHeaderValue($quality);
-        }
-        // header params
-        if ($extend_processing_time !== null) {
-            $headerParams['extendProcessingTime'] = ObjectSerializer::toHeaderValue($extend_processing_time);
         }
 
 
@@ -750,22 +720,21 @@ class VideoApi
      *
      * Convert Video to MP4 format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function videoConvertToMp4($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMp4($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        list($response) = $this->videoConvertToMp4WithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        list($response) = $this->videoConvertToMp4WithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
         return $response;
     }
 
@@ -774,23 +743,22 @@ class VideoApi
      *
      * Convert Video to MP4 format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function videoConvertToMp4WithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMp4WithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToMp4Request($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToMp4Request($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         try {
             $options = $this->createHttpClientOption();
@@ -856,21 +824,20 @@ class VideoApi
      *
      * Convert Video to MP4 format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToMp4Async($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMp4Async($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        return $this->videoConvertToMp4AsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time)
+        return $this->videoConvertToMp4AsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -883,22 +850,21 @@ class VideoApi
      *
      * Convert Video to MP4 format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToMp4AsyncWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToMp4AsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToMp4Request($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToMp4Request($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -940,26 +906,19 @@ class VideoApi
     /**
      * Create request for operation 'videoConvertToMp4'
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function videoConvertToMp4Request($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    protected function videoConvertToMp4Request($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        // verify the required parameter 'input_file' is set
-        if ($input_file === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $input_file when calling videoConvertToMp4'
-            );
-        }
 
         $resourcePath = '/video/convert/to/mp4';
         $formParams = [];
@@ -992,9 +951,299 @@ class VideoApi
         if ($quality !== null) {
             $headerParams['quality'] = ObjectSerializer::toHeaderValue($quality);
         }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoConvertToStillFrames
+     *
+     * Convert Video to PNG Still Frames.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\StillFramesResult
+     */
+    public function videoConvertToStillFrames($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frames_per_second = null)
+    {
+        list($response) = $this->videoConvertToStillFramesWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frames_per_second);
+        return $response;
+    }
+
+    /**
+     * Operation videoConvertToStillFramesWithHttpInfo
+     *
+     * Convert Video to PNG Still Frames.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\StillFramesResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoConvertToStillFramesWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frames_per_second = null)
+    {
+        $returnType = '\Swagger\Client\Model\StillFramesResult';
+        $request = $this->videoConvertToStillFramesRequest($input_file, $file_url, $max_width, $max_height, $frames_per_second);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\StillFramesResult',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoConvertToStillFramesAsync
+     *
+     * Convert Video to PNG Still Frames.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoConvertToStillFramesAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frames_per_second = null)
+    {
+        return $this->videoConvertToStillFramesAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frames_per_second)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoConvertToStillFramesAsyncWithHttpInfo
+     *
+     * Convert Video to PNG Still Frames.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoConvertToStillFramesAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frames_per_second = null)
+    {
+        $returnType = '\Swagger\Client\Model\StillFramesResult';
+        $request = $this->videoConvertToStillFramesRequest($input_file, $file_url, $max_width, $max_height, $frames_per_second);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoConvertToStillFrames'
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoConvertToStillFramesRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frames_per_second = null)
+    {
+
+        $resourcePath = '/video/convert/to/still-frames';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
         // header params
-        if ($extend_processing_time !== null) {
-            $headerParams['extendProcessingTime'] = ObjectSerializer::toHeaderValue($extend_processing_time);
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($max_width !== null) {
+            $headerParams['maxWidth'] = ObjectSerializer::toHeaderValue($max_width);
+        }
+        // header params
+        if ($max_height !== null) {
+            $headerParams['maxHeight'] = ObjectSerializer::toHeaderValue($max_height);
+        }
+        // header params
+        if ($frames_per_second !== null) {
+            $headerParams['framesPerSecond'] = ObjectSerializer::toHeaderValue($frames_per_second);
         }
 
 
@@ -1077,22 +1326,21 @@ class VideoApi
      *
      * Convert Video to WEBM format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return string
      */
-    public function videoConvertToWebm($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToWebm($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        list($response) = $this->videoConvertToWebmWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        list($response) = $this->videoConvertToWebmWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
         return $response;
     }
 
@@ -1101,23 +1349,22 @@ class VideoApi
      *
      * Convert Video to WEBM format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function videoConvertToWebmWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToWebmWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToWebmRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToWebmRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1183,21 +1430,20 @@ class VideoApi
      *
      * Convert Video to WEBM format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToWebmAsync($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToWebmAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        return $this->videoConvertToWebmAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time)
+        return $this->videoConvertToWebmAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1210,22 +1456,21 @@ class VideoApi
      *
      * Convert Video to WEBM format.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoConvertToWebmAsyncWithHttpInfo($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    public function videoConvertToWebmAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
         $returnType = 'string';
-        $request = $this->videoConvertToWebmRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality, $extend_processing_time);
+        $request = $this->videoConvertToWebmRequest($input_file, $file_url, $max_width, $max_height, $preserve_aspect_ratio, $frame_rate, $quality);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1267,26 +1512,19 @@ class VideoApi
     /**
      * Create request for operation 'videoConvertToWebm'
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
      * @param  bool $preserve_aspect_ratio Optional; If false, the original video&#39;s aspect ratio will not be preserved, allowing customization of the aspect ratio using maxWidth and maxHeight, potentially skewing the video. Default is true. (optional)
      * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
      * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
-     * @param  bool $extend_processing_time Optional; If true, will allow additional processing time for the video file conversion, using one API call per additional minute over the 5 minute default processing time, up to a maximum of 25 total minutes. This is generally necessary for files larger than 500 MB or longer than 30 minutes. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function videoConvertToWebmRequest($input_file, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null, $extend_processing_time = null)
+    protected function videoConvertToWebmRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $preserve_aspect_ratio = null, $frame_rate = null, $quality = null)
     {
-        // verify the required parameter 'input_file' is set
-        if ($input_file === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $input_file when calling videoConvertToWebm'
-            );
-        }
 
         $resourcePath = '/video/convert/to/webm';
         $formParams = [];
@@ -1319,9 +1557,290 @@ class VideoApi
         if ($quality !== null) {
             $headerParams['quality'] = ObjectSerializer::toHeaderValue($quality);
         }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoCutVideo
+     *
+     * Cut a Video to a Shorter Length
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $start_time Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function videoCutVideo($input_file = null, $file_url = null, $start_time = null, $time_span = null)
+    {
+        list($response) = $this->videoCutVideoWithHttpInfo($input_file, $file_url, $start_time, $time_span);
+        return $response;
+    }
+
+    /**
+     * Operation videoCutVideoWithHttpInfo
+     *
+     * Cut a Video to a Shorter Length
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $start_time Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoCutVideoWithHttpInfo($input_file = null, $file_url = null, $start_time = null, $time_span = null)
+    {
+        $returnType = 'string';
+        $request = $this->videoCutVideoRequest($input_file, $file_url, $start_time, $time_span);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoCutVideoAsync
+     *
+     * Cut a Video to a Shorter Length
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $start_time Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoCutVideoAsync($input_file = null, $file_url = null, $start_time = null, $time_span = null)
+    {
+        return $this->videoCutVideoAsyncWithHttpInfo($input_file, $file_url, $start_time, $time_span)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoCutVideoAsyncWithHttpInfo
+     *
+     * Cut a Video to a Shorter Length
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $start_time Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoCutVideoAsyncWithHttpInfo($input_file = null, $file_url = null, $start_time = null, $time_span = null)
+    {
+        $returnType = 'string';
+        $request = $this->videoCutVideoRequest($input_file, $file_url, $start_time, $time_span);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoCutVideo'
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $start_time Optional; Specify the desired starting time of the cut video in TimeSpan format. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the cut video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoCutVideoRequest($input_file = null, $file_url = null, $start_time = null, $time_span = null)
+    {
+
+        $resourcePath = '/video/cut';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
         // header params
-        if ($extend_processing_time !== null) {
-            $headerParams['extendProcessingTime'] = ObjectSerializer::toHeaderValue($extend_processing_time);
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($start_time !== null) {
+            $headerParams['startTime'] = ObjectSerializer::toHeaderValue($start_time);
+        }
+        // header params
+        if ($time_span !== null) {
+            $headerParams['timeSpan'] = ObjectSerializer::toHeaderValue($time_span);
         }
 
 
@@ -1404,14 +1923,14 @@ class VideoApi
      *
      * Get detailed information about a video or audio file
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return string
+     * @return \Swagger\Client\Model\MediaInformation
      */
-    public function videoGetInfo($input_file, $file_url = null)
+    public function videoGetInfo($input_file = null, $file_url = null)
     {
         list($response) = $this->videoGetInfoWithHttpInfo($input_file, $file_url);
         return $response;
@@ -1422,17 +1941,294 @@ class VideoApi
      *
      * Get detailed information about a video or audio file
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\MediaInformation, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoGetInfoWithHttpInfo($input_file = null, $file_url = null)
+    {
+        $returnType = '\Swagger\Client\Model\MediaInformation';
+        $request = $this->videoGetInfoRequest($input_file, $file_url);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\MediaInformation',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoGetInfoAsync
+     *
+     * Get detailed information about a video or audio file
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoGetInfoAsync($input_file = null, $file_url = null)
+    {
+        return $this->videoGetInfoAsyncWithHttpInfo($input_file, $file_url)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoGetInfoAsyncWithHttpInfo
+     *
+     * Get detailed information about a video or audio file
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoGetInfoAsyncWithHttpInfo($input_file = null, $file_url = null)
+    {
+        $returnType = '\Swagger\Client\Model\MediaInformation';
+        $request = $this->videoGetInfoRequest($input_file, $file_url);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoGetInfo'
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoGetInfoRequest($input_file = null, $file_url = null)
+    {
+
+        $resourcePath = '/video/convert/get-info';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoResizeVideo
+     *
+     * Resizes a Video Preserving the Original Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function videoResizeVideo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+        list($response) = $this->videoResizeVideoWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
+        return $response;
+    }
+
+    /**
+     * Operation videoResizeVideoWithHttpInfo
+     *
+     * Resizes a Video Preserving the Original Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of string, HTTP status code, HTTP response headers (array of strings)
      */
-    public function videoGetInfoWithHttpInfo($input_file, $file_url = null)
+    public function videoResizeVideoWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
     {
         $returnType = 'string';
-        $request = $this->videoGetInfoRequest($input_file, $file_url);
+        $request = $this->videoResizeVideoRequest($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1494,19 +2290,24 @@ class VideoApi
     }
 
     /**
-     * Operation videoGetInfoAsync
+     * Operation videoResizeVideoAsync
      *
-     * Get detailed information about a video or audio file
+     * Resizes a Video Preserving the Original Aspect Ratio.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoGetInfoAsync($input_file, $file_url = null)
+    public function videoResizeVideoAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
     {
-        return $this->videoGetInfoAsyncWithHttpInfo($input_file, $file_url)
+        return $this->videoResizeVideoAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1515,20 +2316,25 @@ class VideoApi
     }
 
     /**
-     * Operation videoGetInfoAsyncWithHttpInfo
+     * Operation videoResizeVideoAsyncWithHttpInfo
      *
-     * Get detailed information about a video or audio file
+     * Resizes a Video Preserving the Original Aspect Ratio.
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function videoGetInfoAsyncWithHttpInfo($input_file, $file_url = null)
+    public function videoResizeVideoAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
     {
         $returnType = 'string';
-        $request = $this->videoGetInfoRequest($input_file, $file_url);
+        $request = $this->videoResizeVideoRequest($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1568,24 +2374,23 @@ class VideoApi
     }
 
     /**
-     * Create request for operation 'videoGetInfo'
+     * Create request for operation 'videoResizeVideo'
      *
-     * @param  \SplFileObject $input_file Input file to perform the operation on. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function videoGetInfoRequest($input_file, $file_url = null)
+    protected function videoResizeVideoRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
     {
-        // verify the required parameter 'input_file' is set
-        if ($input_file === null) {
-            throw new \InvalidArgumentException(
-                'Missing the required parameter $input_file when calling videoGetInfo'
-            );
-        }
 
-        $resourcePath = '/video/convert/get-info';
+        $resourcePath = '/video/resize/preserveAspectRatio';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1595,6 +2400,905 @@ class VideoApi
         // header params
         if ($file_url !== null) {
             $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($max_width !== null) {
+            $headerParams['maxWidth'] = ObjectSerializer::toHeaderValue($max_width);
+        }
+        // header params
+        if ($max_height !== null) {
+            $headerParams['maxHeight'] = ObjectSerializer::toHeaderValue($max_height);
+        }
+        // header params
+        if ($frame_rate !== null) {
+            $headerParams['frameRate'] = ObjectSerializer::toHeaderValue($frame_rate);
+        }
+        // header params
+        if ($quality !== null) {
+            $headerParams['quality'] = ObjectSerializer::toHeaderValue($quality);
+        }
+        // header params
+        if ($extension !== null) {
+            $headerParams['extension'] = ObjectSerializer::toHeaderValue($extension);
+        }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoResizeVideoSimple
+     *
+     * Resizes a Video without Preserving Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return string
+     */
+    public function videoResizeVideoSimple($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+        list($response) = $this->videoResizeVideoSimpleWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
+        return $response;
+    }
+
+    /**
+     * Operation videoResizeVideoSimpleWithHttpInfo
+     *
+     * Resizes a Video without Preserving Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of string, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoResizeVideoSimpleWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+        $returnType = 'string';
+        $request = $this->videoResizeVideoSimpleRequest($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        'string',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoResizeVideoSimpleAsync
+     *
+     * Resizes a Video without Preserving Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoResizeVideoSimpleAsync($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+        return $this->videoResizeVideoSimpleAsyncWithHttpInfo($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoResizeVideoSimpleAsyncWithHttpInfo
+     *
+     * Resizes a Video without Preserving Aspect Ratio.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoResizeVideoSimpleAsyncWithHttpInfo($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+        $returnType = 'string';
+        $request = $this->videoResizeVideoSimpleRequest($input_file, $file_url, $max_width, $max_height, $frame_rate, $quality, $extension);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoResizeVideoSimple'
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
+     * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
+     * @param  int $frame_rate Optional; Specify the frame rate of the output video. Defaults to original video frame rate. (optional)
+     * @param  int $quality Optional; Specify the quality of the output video, where 100 is lossless and 1 is the lowest possible quality with highest compression. Default is 50. (optional)
+     * @param  string $extension Optional; Specify the file extension of the input video. This is recommended when inputting a file directly, without a file name. If no file name is available and no extension is provided, the extension will be inferred from the file data, which may cause a different extension to be used in the output. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoResizeVideoSimpleRequest($input_file = null, $file_url = null, $max_width = null, $max_height = null, $frame_rate = null, $quality = null, $extension = null)
+    {
+
+        $resourcePath = '/video/resize/target';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($max_width !== null) {
+            $headerParams['maxWidth'] = ObjectSerializer::toHeaderValue($max_width);
+        }
+        // header params
+        if ($max_height !== null) {
+            $headerParams['maxHeight'] = ObjectSerializer::toHeaderValue($max_height);
+        }
+        // header params
+        if ($frame_rate !== null) {
+            $headerParams['frameRate'] = ObjectSerializer::toHeaderValue($frame_rate);
+        }
+        // header params
+        if ($quality !== null) {
+            $headerParams['quality'] = ObjectSerializer::toHeaderValue($quality);
+        }
+        // header params
+        if ($extension !== null) {
+            $headerParams['extension'] = ObjectSerializer::toHeaderValue($extension);
+        }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoScanForNsfw
+     *
+     * Scan a Video for NSFW content.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\NsfwResult
+     */
+    public function videoScanForNsfw($input_file = null, $file_url = null, $frames_per_second = null)
+    {
+        list($response) = $this->videoScanForNsfwWithHttpInfo($input_file, $file_url, $frames_per_second);
+        return $response;
+    }
+
+    /**
+     * Operation videoScanForNsfwWithHttpInfo
+     *
+     * Scan a Video for NSFW content.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\NsfwResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoScanForNsfwWithHttpInfo($input_file = null, $file_url = null, $frames_per_second = null)
+    {
+        $returnType = '\Swagger\Client\Model\NsfwResult';
+        $request = $this->videoScanForNsfwRequest($input_file, $file_url, $frames_per_second);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\NsfwResult',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoScanForNsfwAsync
+     *
+     * Scan a Video for NSFW content.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoScanForNsfwAsync($input_file = null, $file_url = null, $frames_per_second = null)
+    {
+        return $this->videoScanForNsfwAsyncWithHttpInfo($input_file, $file_url, $frames_per_second)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoScanForNsfwAsyncWithHttpInfo
+     *
+     * Scan a Video for NSFW content.
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoScanForNsfwAsyncWithHttpInfo($input_file = null, $file_url = null, $frames_per_second = null)
+    {
+        $returnType = '\Swagger\Client\Model\NsfwResult';
+        $request = $this->videoScanForNsfwRequest($input_file, $file_url, $frames_per_second);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoScanForNsfw'
+     *
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
+     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoScanForNsfwRequest($input_file = null, $file_url = null, $frames_per_second = null)
+    {
+
+        $resourcePath = '/video/scan/nsfw';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($frames_per_second !== null) {
+            $headerParams['framesPerSecond'] = ObjectSerializer::toHeaderValue($frames_per_second);
+        }
+
+
+        // form params
+        if ($input_file !== null) {
+            $multipart = true;
+            $formParams['inputFile'] = \GuzzleHttp\Psr7\try_fopen(ObjectSerializer::toFormValue($input_file), 'rb');
+        }
+        // body params
+        $_tempBody = null;
+
+        if ($multipart) {
+            $headers = $this->headerSelector->selectHeadersForMultipart(
+                ['application/json', 'text/json', 'application/xml', 'text/xml']
+            );
+        } else {
+            $headers = $this->headerSelector->selectHeaders(
+                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['multipart/form-data']
+            );
+        }
+
+        // for model (json/xml)
+        if (isset($_tempBody)) {
+            // $_tempBody is the method argument, if present
+            $httpBody = $_tempBody;
+            // \stdClass has no __toString(), so we should encode it manually
+            if ($httpBody instanceof \stdClass && $headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($httpBody);
+            }
+        } elseif (count($formParams) > 0) {
+            if ($multipart) {
+                $multipartContents = [];
+                foreach ($formParams as $formParamName => $formParamValue) {
+                    $multipartContents[] = [
+                        'name' => $formParamName,
+                        'contents' => $formParamValue
+                    ];
+                }
+                // for HTTP post (form)
+                $httpBody = new MultipartStream($multipartContents);
+
+            } elseif ($headers['Content-Type'] === 'application/json') {
+                $httpBody = \GuzzleHttp\json_encode($formParams);
+
+            } else {
+                // for HTTP post (form)
+                $httpBody = \GuzzleHttp\Psr7\build_query($formParams);
+            }
+        }
+
+        // this endpoint requires API key authentication
+        $apiKey = $this->config->getApiKeyWithPrefix('Apikey');
+        if ($apiKey !== null) {
+            $headers['Apikey'] = $apiKey;
+        }
+
+        $defaultHeaders = [];
+        if ($this->config->getUserAgent()) {
+            $defaultHeaders['User-Agent'] = $this->config->getUserAgent();
+        }
+
+        $headers = array_merge(
+            $defaultHeaders,
+            $headerParams,
+            $headers
+        );
+
+        $query = \GuzzleHttp\Psr7\build_query($queryParams);
+        return new Request(
+            'POST',
+            $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
+            $headers,
+            $httpBody
+        );
+    }
+
+    /**
+     * Operation videoSplitVideo
+     *
+     * Split a Video into Two Shorter Videos
+     *
+     * @param  \DateTime $split_time Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return \Swagger\Client\Model\SplitVideoResult
+     */
+    public function videoSplitVideo($split_time, $input_file = null, $file_url = null, $time_span = null)
+    {
+        list($response) = $this->videoSplitVideoWithHttpInfo($split_time, $input_file, $file_url, $time_span);
+        return $response;
+    }
+
+    /**
+     * Operation videoSplitVideoWithHttpInfo
+     *
+     * Split a Video into Two Shorter Videos
+     *
+     * @param  \DateTime $split_time Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \Swagger\Client\ApiException on non-2xx response
+     * @throws \InvalidArgumentException
+     * @return array of \Swagger\Client\Model\SplitVideoResult, HTTP status code, HTTP response headers (array of strings)
+     */
+    public function videoSplitVideoWithHttpInfo($split_time, $input_file = null, $file_url = null, $time_span = null)
+    {
+        $returnType = '\Swagger\Client\Model\SplitVideoResult';
+        $request = $this->videoSplitVideoRequest($split_time, $input_file, $file_url, $time_span);
+
+        try {
+            $options = $this->createHttpClientOption();
+            try {
+                $response = $this->client->send($request, $options);
+            } catch (RequestException $e) {
+                throw new ApiException(
+                    "[{$e->getCode()}] {$e->getMessage()}",
+                    $e->getCode(),
+                    $e->getResponse() ? $e->getResponse()->getHeaders() : null,
+                    $e->getResponse() ? $e->getResponse()->getBody()->getContents() : null
+                );
+            }
+
+            $statusCode = $response->getStatusCode();
+
+            if ($statusCode < 200 || $statusCode > 299) {
+                throw new ApiException(
+                    sprintf(
+                        '[%d] Error connecting to the API (%s)',
+                        $statusCode,
+                        $request->getUri()
+                    ),
+                    $statusCode,
+                    $response->getHeaders(),
+                    $response->getBody()
+                );
+            }
+
+            $responseBody = $response->getBody();
+            if ($returnType === '\SplFileObject') {
+                $content = $responseBody; //stream goes to serializer
+            } else {
+                $content = $responseBody->getContents();
+                if ($returnType !== 'string') {
+                    $content = json_decode($content);
+                }
+            }
+
+            return [
+                ObjectSerializer::deserialize($content, $returnType, []),
+                $response->getStatusCode(),
+                $response->getHeaders()
+            ];
+
+        } catch (ApiException $e) {
+            switch ($e->getCode()) {
+                case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Swagger\Client\Model\SplitVideoResult',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Operation videoSplitVideoAsync
+     *
+     * Split a Video into Two Shorter Videos
+     *
+     * @param  \DateTime $split_time Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoSplitVideoAsync($split_time, $input_file = null, $file_url = null, $time_span = null)
+    {
+        return $this->videoSplitVideoAsyncWithHttpInfo($split_time, $input_file, $file_url, $time_span)
+            ->then(
+                function ($response) {
+                    return $response[0];
+                }
+            );
+    }
+
+    /**
+     * Operation videoSplitVideoAsyncWithHttpInfo
+     *
+     * Split a Video into Two Shorter Videos
+     *
+     * @param  \DateTime $split_time Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Promise\PromiseInterface
+     */
+    public function videoSplitVideoAsyncWithHttpInfo($split_time, $input_file = null, $file_url = null, $time_span = null)
+    {
+        $returnType = '\Swagger\Client\Model\SplitVideoResult';
+        $request = $this->videoSplitVideoRequest($split_time, $input_file, $file_url, $time_span);
+
+        return $this->client
+            ->sendAsync($request, $this->createHttpClientOption())
+            ->then(
+                function ($response) use ($returnType) {
+                    $responseBody = $response->getBody();
+                    if ($returnType === '\SplFileObject') {
+                        $content = $responseBody; //stream goes to serializer
+                    } else {
+                        $content = $responseBody->getContents();
+                        if ($returnType !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, $returnType, []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                },
+                function ($exception) {
+                    $response = $exception->getResponse();
+                    $statusCode = $response->getStatusCode();
+                    throw new ApiException(
+                        sprintf(
+                            '[%d] Error connecting to the API (%s)',
+                            $statusCode,
+                            $exception->getRequest()->getUri()
+                        ),
+                        $statusCode,
+                        $response->getHeaders(),
+                        $response->getBody()
+                    );
+                }
+            );
+    }
+
+    /**
+     * Create request for operation 'videoSplitVideo'
+     *
+     * @param  \DateTime $split_time Specify the desired time at which to split the video in TimeSpan format. (required)
+     * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
+     * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
+     * @param  \DateTime $time_span Optional; Specify the desired length of the second video in TimeSpan format. Leave blank to include the rest of the video. Maximum time is 4 hours. (optional)
+     *
+     * @throws \InvalidArgumentException
+     * @return \GuzzleHttp\Psr7\Request
+     */
+    protected function videoSplitVideoRequest($split_time, $input_file = null, $file_url = null, $time_span = null)
+    {
+        // verify the required parameter 'split_time' is set
+        if ($split_time === null) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $split_time when calling videoSplitVideo'
+            );
+        }
+
+        $resourcePath = '/video/split';
+        $formParams = [];
+        $queryParams = [];
+        $headerParams = [];
+        $httpBody = '';
+        $multipart = false;
+
+        // header params
+        if ($file_url !== null) {
+            $headerParams['fileUrl'] = ObjectSerializer::toHeaderValue($file_url);
+        }
+        // header params
+        if ($split_time !== null) {
+            $headerParams['splitTime'] = ObjectSerializer::toHeaderValue($split_time);
+        }
+        // header params
+        if ($time_span !== null) {
+            $headerParams['timeSpan'] = ObjectSerializer::toHeaderValue($time_span);
         }
 
 
