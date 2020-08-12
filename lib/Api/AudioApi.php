@@ -267,7 +267,7 @@ class AudioApi
     protected function audioConvertToAacRequest($input_file = null, $file_url = null, $bit_rate = null)
     {
 
-        $resourcePath = '/audio/convert/to/aac';
+        $resourcePath = '/video/convert/to/aac';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -543,7 +543,7 @@ class AudioApi
     protected function audioConvertToM4aRequest($input_file = null, $file_url = null, $bit_rate = null)
     {
 
-        $resourcePath = '/audio/convert/to/m4a';
+        $resourcePath = '/video/convert/to/m4a';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -819,7 +819,7 @@ class AudioApi
     protected function audioConvertToMp3Request($input_file = null, $file_url = null, $bit_rate = null)
     {
 
-        $resourcePath = '/audio/convert/to/mp3';
+        $resourcePath = '/video/convert/to/mp3';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -1095,7 +1095,7 @@ class AudioApi
     protected function audioConvertToWavRequest($input_file = null, $file_url = null, $sample_rate = null)
     {
 
-        $resourcePath = '/audio/convert/to/wav';
+        $resourcePath = '/video/convert/to/wav';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];

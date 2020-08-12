@@ -4,7 +4,7 @@ The video APIs help you convert, encode, and transcode videos.
 [Cloudmersive Video and Media Services API](https://cloudmersive.com/video-and-media-services-api) - Convert and encode video and media files and content between file formats. On-demand.
 
 - API version: v1
-- Package version: 1.0.2
+- Package version: 1.0.3
 
 
 ## Requirements
@@ -88,10 +88,10 @@ All URIs are relative to *https://api.cloudmersive.com*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AudioApi* | [**audioConvertToAac**](docs/Api/AudioApi.md#audioconverttoaac) | **POST** /audio/convert/to/aac | Convert Audio File to AAC format.
-*AudioApi* | [**audioConvertToM4a**](docs/Api/AudioApi.md#audioconverttom4a) | **POST** /audio/convert/to/m4a | Convert Audio File to M4A format.
-*AudioApi* | [**audioConvertToMp3**](docs/Api/AudioApi.md#audioconverttomp3) | **POST** /audio/convert/to/mp3 | Convert Audio File to MP3 format.
-*AudioApi* | [**audioConvertToWav**](docs/Api/AudioApi.md#audioconverttowav) | **POST** /audio/convert/to/wav | Convert Audio File to WAV format.
+*AudioApi* | [**audioConvertToAac**](docs/Api/AudioApi.md#audioconverttoaac) | **POST** /video/convert/to/aac | Convert Audio File to AAC format.
+*AudioApi* | [**audioConvertToM4a**](docs/Api/AudioApi.md#audioconverttom4a) | **POST** /video/convert/to/m4a | Convert Audio File to M4A format.
+*AudioApi* | [**audioConvertToMp3**](docs/Api/AudioApi.md#audioconverttomp3) | **POST** /video/convert/to/mp3 | Convert Audio File to MP3 format.
+*AudioApi* | [**audioConvertToWav**](docs/Api/AudioApi.md#audioconverttowav) | **POST** /video/convert/to/wav | Convert Audio File to WAV format.
 *VideoApi* | [**videoConvertToGif**](docs/Api/VideoApi.md#videoconverttogif) | **POST** /video/convert/to/gif | Convert Video to Animated GIF format.
 *VideoApi* | [**videoConvertToMov**](docs/Api/VideoApi.md#videoconverttomov) | **POST** /video/convert/to/mov | Convert Video to MOV format.
 *VideoApi* | [**videoConvertToMp4**](docs/Api/VideoApi.md#videoconverttomp4) | **POST** /video/convert/to/mp4 | Convert Video to MP4 format.
