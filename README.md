@@ -4,7 +4,7 @@ The video APIs help you convert, encode, and transcode videos.
 [Cloudmersive Video and Media Services API](https://cloudmersive.com/video-and-media-services-api) - Convert and encode video and media files and content between file formats. On-demand.
 
 - API version: v1
-- Package version: 1.0.3
+- Package version: 1.0.4
 
 
 ## Requirements
@@ -70,7 +70,7 @@ $apiInstance = new Swagger\Client\Api\AudioApi(
 );
 $input_file = "/path/to/file.txt"; // \SplFileObject | Input file to perform the operation on.
 $file_url = "file_url_example"; // string | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-$bit_rate = "bit_rate_example"; // string | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+$bit_rate = 56; // int | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 
 try {
     $result = $apiInstance->audioConvertToAac($input_file, $file_url, $bit_rate);

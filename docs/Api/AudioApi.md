@@ -35,7 +35,7 @@ $apiInstance = new Swagger\Client\Api\AudioApi(
 );
 $input_file = "/path/to/file.txt"; // \SplFileObject | Input file to perform the operation on.
 $file_url = "file_url_example"; // string | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-$bit_rate = "bit_rate_example"; // string | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+$bit_rate = 56; // int | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 
 try {
     $result = $apiInstance->audioConvertToAac($input_file, $file_url, $bit_rate);
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **\SplFileObject**| Input file to perform the operation on. | [optional]
  **file_url** | **string**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bit_rate** | **string**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bit_rate** | **int**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -65,7 +65,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -94,7 +94,7 @@ $apiInstance = new Swagger\Client\Api\AudioApi(
 );
 $input_file = "/path/to/file.txt"; // \SplFileObject | Input file to perform the operation on.
 $file_url = "file_url_example"; // string | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-$bit_rate = "bit_rate_example"; // string | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+$bit_rate = 56; // int | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 
 try {
     $result = $apiInstance->audioConvertToM4a($input_file, $file_url, $bit_rate);
@@ -111,7 +111,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **\SplFileObject**| Input file to perform the operation on. | [optional]
  **file_url** | **string**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bit_rate** | **string**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bit_rate** | **int**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -124,7 +124,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -153,7 +153,7 @@ $apiInstance = new Swagger\Client\Api\AudioApi(
 );
 $input_file = "/path/to/file.txt"; // \SplFileObject | Input file to perform the operation on.
 $file_url = "file_url_example"; // string | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-$bit_rate = "bit_rate_example"; // string | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
+$bit_rate = 56; // int | Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically.
 
 try {
     $result = $apiInstance->audioConvertToMp3($input_file, $file_url, $bit_rate);
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **\SplFileObject**| Input file to perform the operation on. | [optional]
  **file_url** | **string**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **bit_rate** | **string**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
+ **bit_rate** | **int**| Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -183,7 +183,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 
@@ -212,7 +212,7 @@ $apiInstance = new Swagger\Client\Api\AudioApi(
 );
 $input_file = "/path/to/file.txt"; // \SplFileObject | Input file to perform the operation on.
 $file_url = "file_url_example"; // string | Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB.
-$sample_rate = "sample_rate_example"; // string | Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
+$sample_rate = 8.14; // float | Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically.
 
 try {
     $result = $apiInstance->audioConvertToWav($input_file, $file_url, $sample_rate);
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **input_file** | **\SplFileObject**| Input file to perform the operation on. | [optional]
  **file_url** | **string**| Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. | [optional]
- **sample_rate** | **string**| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
+ **sample_rate** | **float**| Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. | [optional]
 
 ### Return type
 
@@ -242,7 +242,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: multipart/form-data
- - **Accept**: application/json, text/json, application/xml, text/xml
+ - **Accept**: application/octet-stream
 
 [[Back to top]](#) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to Model list]](../../README.md#documentation-for-models) [[Back to README]](../../README.md)
 

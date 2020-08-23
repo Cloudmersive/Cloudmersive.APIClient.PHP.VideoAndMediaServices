@@ -89,7 +89,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -108,7 +108,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -185,7 +185,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -207,7 +207,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -259,7 +259,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -294,11 +294,11 @@ class AudioApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -365,7 +365,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -384,7 +384,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -461,7 +461,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -483,7 +483,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -535,7 +535,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -570,11 +570,11 @@ class AudioApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -641,7 +641,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -660,7 +660,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -737,7 +737,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -759,7 +759,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -811,7 +811,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
+     * @param  int $bit_rate Optional; Specify the desired bitrate of the converted audio file in kilobytes per second (kB/s). Value may be between 48 and 1,411. By default, the optimal bitrate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -846,11 +846,11 @@ class AudioApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -917,7 +917,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
+     * @param  float $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -936,7 +936,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
+     * @param  float $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1013,7 +1013,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
+     * @param  float $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1035,7 +1035,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
+     * @param  float $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1087,7 +1087,7 @@ class AudioApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of an audio file being used for conversion. Use this option for files larger than 2GB. (optional)
-     * @param  string $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
+     * @param  float $sample_rate Optional; Specify the desired sample rate of the converted audio file in kHz. Value may be between 8 and 96. Standard for audio CDs is 44.1, while DVD audio standard is 48. By default, the optimal sample rate will be chosen automatically. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1122,11 +1122,11 @@ class AudioApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }

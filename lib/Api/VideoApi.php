@@ -339,11 +339,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -651,11 +651,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -963,11 +963,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -1036,7 +1036,7 @@ class VideoApi
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1057,7 +1057,7 @@ class VideoApi
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1136,7 +1136,7 @@ class VideoApi
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1160,7 +1160,7 @@ class VideoApi
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1214,7 +1214,7 @@ class VideoApi
      * @param  string $file_url Optional; URL of a video file being used for conversion. Use this option for files larger than 2GB. (optional)
      * @param  int $max_width Optional; Maximum width of the output video, up to the original video width. Defaults to original video width. (optional)
      * @param  int $max_height Optional; Maximum height of the output video, up to the original video width. Defaults to original video height. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be returned as PNG images. Minimum value is 0.1, maximum is 60. Default is 1 frame per second. Maximum of 2000 total frames. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1569,11 +1569,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -1854,11 +1854,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -2433,11 +2433,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -2745,11 +2745,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
@@ -2816,7 +2816,7 @@ class VideoApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2835,7 +2835,7 @@ class VideoApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
      *
      * @throws \Swagger\Client\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -2912,7 +2912,7 @@ class VideoApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2934,7 +2934,7 @@ class VideoApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2986,7 +2986,7 @@ class VideoApi
      *
      * @param  \SplFileObject $input_file Input file to perform the operation on. (optional)
      * @param  string $file_url Optional; URL of a video file being scanned. Use this option for files larger than 2GB. (optional)
-     * @param  string $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
+     * @param  float $frames_per_second Optional; How many video frames per second to be scanned. Minimum value is 0.05 (1 frame per 20 seconds), maximum is 1. Default is 0.33 frame per second (1 frame scanned every 3 seconds). Maximum of 1000 total frames can be scanned, potentially adjusting the framerate for longer videos. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -3312,11 +3312,11 @@ class VideoApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/json', 'text/json', 'application/xml', 'text/xml']
+                ['application/octet-stream']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/json', 'text/json', 'application/xml', 'text/xml'],
+                ['application/octet-stream'],
                 ['multipart/form-data']
             );
         }
